@@ -41,6 +41,28 @@ namespace AS2324_5G_INF_DiLenaMarco_WebAPI.Controllers
             }
             return new JsonResult(new JsonResult (res));
         }
+        [HttpGet("Bisestile")]
+        public JsonResult Bisestile(int anno)
+        {
+            string res;
+
+            if (anno % 4 == 0)
+            {
+                if (anno % 100 != 0 || anno % 400 == 0)
+                {
+                    res = "L'anno è bisestile";
+                }
+                else
+                {
+                    res = "L'anno non è bisestile";
+                }
+            }
+            else
+            {
+                res = "L'anno non è bisestile";
+            }
+            return new JsonResult(new JsonResult(res));
+        }
 
     }
 }
