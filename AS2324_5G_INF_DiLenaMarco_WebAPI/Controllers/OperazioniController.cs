@@ -63,6 +63,18 @@ namespace AS2324_5G_INF_DiLenaMarco_WebAPI.Controllers
             }
             return new JsonResult(new JsonResult(res));
         }
-
+        [HttpGet("Ipotenusa")]
+        public JsonResult Ipotenusa(double cateto1, double cateto2)
+        {
+            string res;
+            double ipotenusa;
+            if (cateto1 <= 0 || cateto2 <= 0)
+            {
+                res = "I cateti devono essere numeri positivi e non nulli.";
+            }
+            ipotenusa = Math.Sqrt(cateto1 * cateto1 + cateto2 * cateto2);
+            res = ipotenusa.ToString();
+            return new JsonResult(new JsonResult(res));
+        }
     }
 }
